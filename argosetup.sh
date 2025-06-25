@@ -1,5 +1,7 @@
 #!/bin/sh
 export LANG=en_US.UTF-8
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+
 if ! find /proc/*/exe -type l 2>/dev/null | grep -E '/proc/[0-9]+/exe' | xargs -r readlink 2>/dev/null | grep -q 'agsb/s' && ! pgrep -f 'agsb/s' >/dev/null 2>&1; then
 [ -z "${vlpt+x}" ] || vlp=yes
 [ -z "${vmpt+x}" ] || vmp=yes
@@ -465,20 +467,22 @@ echo "---------------------------------------------------------"
 echo -e "$argoshow"
 echo "---------------------------------------------------------"
 echo "聚合节点信息，请查看$HOME/agsb/jh.txt文件或者运行cat $HOME/agsb/jh.txt进行复制"
+echo "聚合节点信息已生成，并复制到脚本所在目录，文件名为 jh_$TIMESTAMP.txt"
 
 echo "======== 开始复制 jh.txt 文件 ========"    
-# 在这里添加最终的复制步骤
+ # 在这里添加最终的复制步骤
     SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
-    if [ -f "/tmp/agsb_nodes/jh.txt" ]; then
-        echo "======== 尝试将 jh.txt 复制到脚本所在目录: $SCRIPT_DIR ========"
-        cp "/tmp/agsb_nodes/jh.txt" "$SCRIPT_DIR/"
-        if [ -f "$SCRIPT_DIR/jh.txt" ]; then
-            echo "======== jh.txt 文件已成功复制到脚本所在目录 ========"
+    if [ -f "$HOME/agsb/jh.txt" ]; then # 注意这里的修改
+        echo "======== 尝试将 jh.txt 复制到脚本所在目录: $SCRIPT_DIR ========" # 注意这里的修改
+        cp "$HOME/agsb/jh.txt" "$SCRIPT_DIR/jh_$TIMESTAMP.txt" # 注意这里的修改
+        if [ -f "$SCRIPT_DIR/jh_$TIMESTAMP.txt" ]; then # 注意这里的修改
+            echo "======== jh_$TIMESTAMP.txt 文件已成功复制到脚本所在目录 ========" # 注意这里的修改
         else
-            echo "======== jh.txt 文件最终复制失败 ========"
+            echo "======== jh_$TIMESTAMP.txt 文件最终复制失败 ========" # 注意这里的修改
         fi
         echo "======== 最终复制过程结束 ========"
     fi
+
 echo "======== 复制过程结束 ========"
 echo "聚合节点信息，**********************复制 jh.txt******************************"
 echo "---------------------------------------------------------"
