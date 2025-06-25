@@ -1,0 +1,2 @@
+
+vlpt="" vmpt="56123" hypt="" tupt="" argo="y" agn="0624.yx242.dpdns.org" agk="eyJhIjoiNDhhZGQ4Zjc0ZTMwNTFlOTYzYjgwZDdiZGE1MTljOTAiLCJ0IjoiODI5NGFhNDktZjhjYy00NWYyLWE0ZjEtYjIzMzViMzQzZDJhIiwicyI6Ill6WTRPVEZpWXpFdFpqQmpNUzAwTUdOaUxXSTROV0l0WVRSaVpXUm1aVE01WkRnMiJ9" bash <(curl -Ls https://raw.githubusercontent.com/zzzhhh1/argosb/main/argosb.sh)
